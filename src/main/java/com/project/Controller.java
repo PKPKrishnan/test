@@ -8,7 +8,6 @@ public class Controller {
 
     @RequestMapping("/hello")
     public ModelAndView helloWorld() {
-        System.out.println("true ---------------= " + true);
         String message = "SPRING MVC";
         return new ModelAndView("hellopage", "message", message);
     }
