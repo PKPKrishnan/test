@@ -1,0 +1,18 @@
+
+apply plugin: 'java'
+apply plugin: 'jetty'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+// Embeded Jetty for testing
+jettyRun{
+    contextPath = "test"
+    httpPort = 8080
+}
