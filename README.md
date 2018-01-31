@@ -30,6 +30,7 @@ git push
 ## build.gradle (project common)
 
 apply plugin: 'java'
+# Run Jetty
 apply plugin: 'jetty'
 
 repositories {
@@ -44,6 +45,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
+# Run Jetty
 // Embeded Jetty for testing
 jettyRun{
     contextPath = "test"
@@ -52,3 +54,8 @@ jettyRun{
 
 
 ## dependencies.gradle (Add if need)
+apply from: 'dependencies.gradle'
+
+compile libraries.spring_webmvc
+
+project.ext.libraries = [ spring_webmvc 'org.springframework:spring-webmvc:4.1.6.RELEASE']
