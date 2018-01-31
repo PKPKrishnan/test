@@ -25,3 +25,30 @@ git pull origin master
 git add -A
 git commit -m "comments"
 git push
+
+
+## build.gradle (project common)
+
+apply plugin: 'java'
+apply plugin: 'jetty'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+    compile 'javax.servlet:servlet-api:3.0-alpha-1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+// Embeded Jetty for testing
+jettyRun{
+    contextPath = "test"
+    httpPort = 8080
+}
+
+
+## dependencies.gradle (Add if need)
